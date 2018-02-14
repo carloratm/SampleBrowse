@@ -1,3 +1,4 @@
+import math
 import numpy as np
 from PyQt5 import QtCore, QtGui, QtWidgets
 
@@ -66,7 +67,7 @@ class WaveScene(QtWidgets.QGraphicsScene):
 
         samples, channels = waveData.shape
         #resolution is 5 samples per scene pixel
-        step = samples//(width*5)
+        step = math.ceil(samples/(width*5))
         self.realStep = step
 
         path = QtGui.QPainterPath()
